@@ -12,23 +12,24 @@ import RxCocoa
 
 class HomeViewController: UIViewController {
 
+    let disposeBag = DisposeBag()
+    lazy var homeViewModel = HomeViewModel()
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        binding()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.global().async {
-            let loadData = VehicleLoader()
-            loadData.loadProduct().observe { result in
-                switch result{
-                case .success(let values):
-                    print(values)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        }
+    func binding(){
+        homeViewModel
+        .loading
+        .bind(to: isAnimating)
+        .disposed(by: disposeBag)
+        
+        homeViewModel.fetchVehicleList()
     }
+    
 }
 
