@@ -3,18 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		179CC0C32379DA3D00CA420A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0C22379DA3D00CA420A /* AppDelegate.swift */; };
 		179CC0C52379DA3D00CA420A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0C42379DA3D00CA420A /* SceneDelegate.swift */; };
-		179CC0C72379DA3D00CA420A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0C62379DA3D00CA420A /* ViewController.swift */; };
 		179CC0CA2379DA3D00CA420A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179CC0C82379DA3D00CA420A /* Main.storyboard */; };
 		179CC0CC2379DA4300CA420A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 179CC0CB2379DA4300CA420A /* Assets.xcassets */; };
 		179CC0CF2379DA4300CA420A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 179CC0CD2379DA4300CA420A /* LaunchScreen.storyboard */; };
 		179CC0DA2379DA4300CA420A /* OlaApp_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0D92379DA4300CA420A /* OlaApp_TaskTests.swift */; };
 		179CC0E52379DA4300CA420A /* OlaApp_TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0E42379DA4300CA420A /* OlaApp_TaskUITests.swift */; };
+		179CC0F92379E1CA00CA420A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 179CC0F82379E1CA00CA420A /* RxSwift */; };
+		179CC0FB2379E1CB00CA420A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 179CC0FA2379E1CA00CA420A /* RxCocoa */; };
+		179CC0FD2379E1EB00CA420A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0FC2379E1EB00CA420A /* HomeViewController.swift */; };
+		179CC0FF2379E2C700CA420A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0FE2379E2C700CA420A /* HomeViewModel.swift */; };
+		179CC101237AF54600CA420A /* VehicleDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC100237AF54600CA420A /* VehicleDetails.swift */; };
+		179CC104237AF81500CA420A /* VehiclesCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC103237AF81500CA420A /* VehiclesCollectionVC.swift */; };
+		179CC106237AF85000CA420A /* VehicleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC105237AF85000CA420A /* VehicleDetailVC.swift */; };
+		179CC108237AF87000CA420A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC107237AF87000CA420A /* MapViewController.swift */; };
+		179CC10A237AFC1100CA420A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC109237AFC1100CA420A /* Endpoint.swift */; };
+		179CC10C237AFE0D00CA420A /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC10B237AFE0D00CA420A /* Networking.swift */; };
+		179CC10E237B228700CA420A /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC10D237B228700CA420A /* Future.swift */; };
+		179CC110237B2B5300CA420A /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC10F237B2B5300CA420A /* Promise.swift */; };
+		179CC112237B2CF300CA420A /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC111237B2CF300CA420A /* DataDecoder.swift */; };
+		179CC115237B2FB300CA420A /* VehicleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC114237B2FB300CA420A /* VehicleLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +51,6 @@
 		179CC0BF2379DA3D00CA420A /* OlaApp-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OlaApp-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		179CC0C22379DA3D00CA420A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		179CC0C42379DA3D00CA420A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		179CC0C62379DA3D00CA420A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		179CC0C92379DA3D00CA420A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		179CC0CB2379DA4300CA420A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		179CC0CE2379DA4300CA420A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +61,18 @@
 		179CC0E02379DA4300CA420A /* OlaApp-TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OlaApp-TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		179CC0E42379DA4300CA420A /* OlaApp_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlaApp_TaskUITests.swift; sourceTree = "<group>"; };
 		179CC0E62379DA4300CA420A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		179CC0FC2379E1EB00CA420A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		179CC0FE2379E2C700CA420A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		179CC100237AF54600CA420A /* VehicleDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetails.swift; sourceTree = "<group>"; };
+		179CC103237AF81500CA420A /* VehiclesCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesCollectionVC.swift; sourceTree = "<group>"; };
+		179CC105237AF85000CA420A /* VehicleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailVC.swift; sourceTree = "<group>"; };
+		179CC107237AF87000CA420A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		179CC109237AFC1100CA420A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		179CC10B237AFE0D00CA420A /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		179CC10D237B228700CA420A /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
+		179CC10F237B2B5300CA420A /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		179CC111237B2CF300CA420A /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
+		179CC114237B2FB300CA420A /* VehicleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179CC0FB2379E1CB00CA420A /* RxCocoa in Frameworks */,
+				179CC0F92379E1CA00CA420A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,9 +125,11 @@
 		179CC0C12379DA3D00CA420A /* OlaApp-Task */ = {
 			isa = PBXGroup;
 			children = (
+				179CC116237B2FF200CA420A /* Common */,
+				179CC102237AF5B700CA420A /* Networking */,
+				179CC0F62379DF7E00CA420A /* Home  */,
 				179CC0C22379DA3D00CA420A /* AppDelegate.swift */,
 				179CC0C42379DA3D00CA420A /* SceneDelegate.swift */,
-				179CC0C62379DA3D00CA420A /* ViewController.swift */,
 				179CC0C82379DA3D00CA420A /* Main.storyboard */,
 				179CC0CB2379DA4300CA420A /* Assets.xcassets */,
 				179CC0CD2379DA4300CA420A /* LaunchScreen.storyboard */,
@@ -128,6 +156,71 @@
 			path = "OlaApp-TaskUITests";
 			sourceTree = "<group>";
 		};
+		179CC0F22379DD3200CA420A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				179CC100237AF54600CA420A /* VehicleDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		179CC0F42379DD4500CA420A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				179CC0FC2379E1EB00CA420A /* HomeViewController.swift */,
+				179CC103237AF81500CA420A /* VehiclesCollectionVC.swift */,
+				179CC105237AF85000CA420A /* VehicleDetailVC.swift */,
+				179CC107237AF87000CA420A /* MapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		179CC0F52379DD4D00CA420A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				179CC0FE2379E2C700CA420A /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		179CC0F62379DF7E00CA420A /* Home  */ = {
+			isa = PBXGroup;
+			children = (
+				179CC113237B2F6F00CA420A /* Remote */,
+				179CC0F22379DD3200CA420A /* Model */,
+				179CC0F52379DD4D00CA420A /* ViewModel */,
+				179CC0F42379DD4500CA420A /* View */,
+			);
+			path = "Home ";
+			sourceTree = "<group>";
+		};
+		179CC102237AF5B700CA420A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				179CC109237AFC1100CA420A /* Endpoint.swift */,
+				179CC10D237B228700CA420A /* Future.swift */,
+				179CC10F237B2B5300CA420A /* Promise.swift */,
+				179CC111237B2CF300CA420A /* DataDecoder.swift */,
+				179CC10B237AFE0D00CA420A /* Networking.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		179CC113237B2F6F00CA420A /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				179CC114237B2FB300CA420A /* VehicleLoader.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		179CC116237B2FF200CA420A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +237,10 @@
 			dependencies = (
 			);
 			name = "OlaApp-Task";
+			packageProductDependencies = (
+				179CC0F82379E1CA00CA420A /* RxSwift */,
+				179CC0FA2379E1CA00CA420A /* RxCocoa */,
+			);
 			productName = "OlaApp-Task";
 			productReference = 179CC0BF2379DA3D00CA420A /* OlaApp-Task.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +313,9 @@
 				Base,
 			);
 			mainGroup = 179CC0B62379DA3D00CA420A;
+			packageReferences = (
+				179CC0F72379E1CA00CA420A /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 179CC0C02379DA3D00CA420A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,9 +359,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				179CC0C72379DA3D00CA420A /* ViewController.swift in Sources */,
 				179CC0C32379DA3D00CA420A /* AppDelegate.swift in Sources */,
+				179CC115237B2FB300CA420A /* VehicleLoader.swift in Sources */,
+				179CC10C237AFE0D00CA420A /* Networking.swift in Sources */,
+				179CC10A237AFC1100CA420A /* Endpoint.swift in Sources */,
 				179CC0C52379DA3D00CA420A /* SceneDelegate.swift in Sources */,
+				179CC106237AF85000CA420A /* VehicleDetailVC.swift in Sources */,
+				179CC0FD2379E1EB00CA420A /* HomeViewController.swift in Sources */,
+				179CC112237B2CF300CA420A /* DataDecoder.swift in Sources */,
+				179CC104237AF81500CA420A /* VehiclesCollectionVC.swift in Sources */,
+				179CC0FF2379E2C700CA420A /* HomeViewModel.swift in Sources */,
+				179CC10E237B228700CA420A /* Future.swift in Sources */,
+				179CC101237AF54600CA420A /* VehicleDetails.swift in Sources */,
+				179CC108237AF87000CA420A /* MapViewController.swift in Sources */,
+				179CC110237B2B5300CA420A /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +695,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		179CC0F72379E1CA00CA420A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		179CC0F82379E1CA00CA420A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 179CC0F72379E1CA00CA420A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		179CC0FA2379E1CA00CA420A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 179CC0F72379E1CA00CA420A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 179CC0B72379DA3D00CA420A /* Project object */;
 }
