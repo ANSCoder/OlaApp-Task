@@ -51,6 +51,21 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
                             })
                         }
         }.disposed(by: disposeBag)
+        
+        vehiclesCollectionView
+            .rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
+}
+
+extension VehiclesCollectionVC: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellHeight = collectionView.bounds.height - 1
+        return CGSize(width: cellHeight, height: cellHeight)
+    }
 }
