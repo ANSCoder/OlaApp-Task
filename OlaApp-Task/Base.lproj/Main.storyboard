@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,15 +12,108 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="OlaApp_Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-WW-rdQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crk-DM-67w">
+                                <rect key="frame" x="20" y="360" width="280" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="9I3-vb-F1B"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ddF-WW-rdQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MAa-12-zs2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ddF-WW-rdQ" secondAttribute="bottom" id="UmL-Uh-eZ9"/>
+                            <constraint firstItem="crk-DM-67w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VfK-Pc-YXI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="crk-DM-67w" secondAttribute="bottom" constant="20" id="bzK-cX-5H9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ddF-WW-rdQ" secondAttribute="trailing" id="qnk-Ye-E7C"/>
+                            <constraint firstItem="ddF-WW-rdQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qyg-o1-oeW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="crk-DM-67w" secondAttribute="trailing" constant="20" id="svh-o2-Ynf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mapViewContainer" destination="ddF-WW-rdQ" id="lqf-hd-ArL"/>
+                        <outlet property="vehicalTypeContainer" destination="crk-DM-67w" id="rSB-fL-4jY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="70"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="f4V-MY-c29">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="qMr-Pm-hk1" customClass="MapViewController" customModule="OlaApp_Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ieh-mr-0xN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="df3-DQ-p9q">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qMr-Pm-hk1" id="RLt-0t-Cu0"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="M7p-e5-hdF" firstAttribute="bottom" secondItem="df3-DQ-p9q" secondAttribute="bottom" id="7nv-BG-2yj"/>
+                            <constraint firstItem="df3-DQ-p9q" firstAttribute="top" secondItem="M7p-e5-hdF" secondAttribute="top" id="ZgX-eP-F8Q"/>
+                            <constraint firstItem="df3-DQ-p9q" firstAttribute="leading" secondItem="M7p-e5-hdF" secondAttribute="leading" id="j4N-0Z-3qD"/>
+                            <constraint firstItem="M7p-e5-hdF" firstAttribute="trailing" secondItem="df3-DQ-p9q" secondAttribute="trailing" id="wqP-5x-92N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="M7p-e5-hdF"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="df3-DQ-p9q" id="L4F-QR-hFY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hyb-Es-5cp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="842" y="70"/>
+        </scene>
+        <!--Vehicles CollectionVC-->
+        <scene sceneID="uRR-w4-Ab0">
+            <objects>
+                <viewController storyboardIdentifier="VehiclesCollectionVC" id="pmE-b5-b6t" customClass="VehiclesCollectionVC" customModule="OlaApp_Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1jj-Tl-rCC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A8C-fo-qmU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vwj-IU-C8f">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="A8C-fo-qmU" firstAttribute="leading" secondItem="l2S-co-xqm" secondAttribute="leading" id="53t-5l-OZV"/>
+                            <constraint firstItem="A8C-fo-qmU" firstAttribute="top" secondItem="l2S-co-xqm" secondAttribute="top" id="fSr-gb-yVB"/>
+                            <constraint firstItem="l2S-co-xqm" firstAttribute="trailing" secondItem="A8C-fo-qmU" secondAttribute="trailing" id="xsd-98-P6w"/>
+                            <constraint firstItem="l2S-co-xqm" firstAttribute="bottom" secondItem="A8C-fo-qmU" secondAttribute="bottom" id="zu6-cd-h1C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="l2S-co-xqm"/>
+                    </view>
+                    <connections>
+                        <outlet property="vehiclesCollectionView" destination="A8C-fo-qmU" id="Q07-NE-S28"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iTh-Sb-xIz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="842" y="769"/>
         </scene>
     </scenes>
 </document>

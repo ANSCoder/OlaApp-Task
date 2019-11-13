@@ -19,7 +19,6 @@
 		179CC0FD2379E1EB00CA420A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0FC2379E1EB00CA420A /* HomeViewController.swift */; };
 		179CC0FF2379E2C700CA420A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC0FE2379E2C700CA420A /* HomeViewModel.swift */; };
 		179CC101237AF54600CA420A /* VehicleDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC100237AF54600CA420A /* VehicleDetails.swift */; };
-		179CC104237AF81500CA420A /* VehiclesCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC103237AF81500CA420A /* VehiclesCollectionVC.swift */; };
 		179CC106237AF85000CA420A /* VehicleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC105237AF85000CA420A /* VehicleDetailVC.swift */; };
 		179CC108237AF87000CA420A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC107237AF87000CA420A /* MapViewController.swift */; };
 		179CC10A237AFC1100CA420A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC109237AFC1100CA420A /* Endpoint.swift */; };
@@ -30,6 +29,11 @@
 		179CC115237B2FB300CA420A /* VehicleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC114237B2FB300CA420A /* VehicleLoader.swift */; };
 		179CC119237B30E400CA420A /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC118237B30E400CA420A /* LoadingViewController.swift */; };
 		179CC11C237B315900CA420A /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC11B237B315900CA420A /* ViewControllerExtension.swift */; };
+		179CC126237C386800CA420A /* VehiclesCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC125237C386800CA420A /* VehiclesCollectionVC.swift */; };
+		179CC129237C387400CA420A /* VehicleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179CC127237C387400CA420A /* VehicleCell.xib */; };
+		179CC12A237C387400CA420A /* VehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC128237C387400CA420A /* VehicleCell.swift */; };
+		179CC12D237C3E3A00CA420A /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC12C237C3E3A00CA420A /* ImageProvider.swift */; };
+		179CC130237C436700CA420A /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC12F237C436700CA420A /* Storyboarded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +70,6 @@
 		179CC0FC2379E1EB00CA420A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		179CC0FE2379E2C700CA420A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		179CC100237AF54600CA420A /* VehicleDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetails.swift; sourceTree = "<group>"; };
-		179CC103237AF81500CA420A /* VehiclesCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesCollectionVC.swift; sourceTree = "<group>"; };
 		179CC105237AF85000CA420A /* VehicleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailVC.swift; sourceTree = "<group>"; };
 		179CC107237AF87000CA420A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		179CC109237AFC1100CA420A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -77,6 +80,11 @@
 		179CC114237B2FB300CA420A /* VehicleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleLoader.swift; sourceTree = "<group>"; };
 		179CC118237B30E400CA420A /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		179CC11B237B315900CA420A /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		179CC125237C386800CA420A /* VehiclesCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesCollectionVC.swift; sourceTree = "<group>"; };
+		179CC127237C387400CA420A /* VehicleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehicleCell.xib; sourceTree = "<group>"; };
+		179CC128237C387400CA420A /* VehicleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleCell.swift; sourceTree = "<group>"; };
+		179CC12C237C3E3A00CA420A /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		179CC12F237C436700CA420A /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,8 +179,9 @@
 		179CC0F42379DD4500CA420A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				179CC11F237C2DB700CA420A /* Cells */,
 				179CC0FC2379E1EB00CA420A /* HomeViewController.swift */,
-				179CC103237AF81500CA420A /* VehiclesCollectionVC.swift */,
+				179CC125237C386800CA420A /* VehiclesCollectionVC.swift */,
 				179CC105237AF85000CA420A /* VehicleDetailVC.swift */,
 				179CC107237AF87000CA420A /* MapViewController.swift */,
 			);
@@ -221,6 +230,8 @@
 		179CC116237B2FF200CA420A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				179CC12E237C435A00CA420A /* Storyboarded */,
+				179CC12B237C3E2D00CA420A /* Image Provider */,
 				179CC11A237B314400CA420A /* Extensions */,
 				179CC117237B30CE00CA420A /* Loading View */,
 			);
@@ -241,6 +252,31 @@
 				179CC11B237B315900CA420A /* ViewControllerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		179CC11F237C2DB700CA420A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				179CC128237C387400CA420A /* VehicleCell.swift */,
+				179CC127237C387400CA420A /* VehicleCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		179CC12B237C3E2D00CA420A /* Image Provider */ = {
+			isa = PBXGroup;
+			children = (
+				179CC12C237C3E3A00CA420A /* ImageProvider.swift */,
+			);
+			path = "Image Provider";
+			sourceTree = "<group>";
+		};
+		179CC12E237C435A00CA420A /* Storyboarded */ = {
+			isa = PBXGroup;
+			children = (
+				179CC12F237C436700CA420A /* Storyboarded.swift */,
+			);
+			path = Storyboarded;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179CC129237C387400CA420A /* VehicleCell.xib in Resources */,
 				179CC0CF2379DA4300CA420A /* LaunchScreen.storyboard in Resources */,
 				179CC0CC2379DA4300CA420A /* Assets.xcassets in Resources */,
 				179CC0CA2379DA3D00CA420A /* Main.storyboard in Resources */,
@@ -389,13 +426,16 @@
 				179CC10A237AFC1100CA420A /* Endpoint.swift in Sources */,
 				179CC0C52379DA3D00CA420A /* SceneDelegate.swift in Sources */,
 				179CC106237AF85000CA420A /* VehicleDetailVC.swift in Sources */,
+				179CC12D237C3E3A00CA420A /* ImageProvider.swift in Sources */,
 				179CC0FD2379E1EB00CA420A /* HomeViewController.swift in Sources */,
+				179CC12A237C387400CA420A /* VehicleCell.swift in Sources */,
 				179CC112237B2CF300CA420A /* DataDecoder.swift in Sources */,
-				179CC104237AF81500CA420A /* VehiclesCollectionVC.swift in Sources */,
 				179CC0FF2379E2C700CA420A /* HomeViewModel.swift in Sources */,
 				179CC10E237B228700CA420A /* Future.swift in Sources */,
 				179CC101237AF54600CA420A /* VehicleDetails.swift in Sources */,
+				179CC126237C386800CA420A /* VehiclesCollectionVC.swift in Sources */,
 				179CC108237AF87000CA420A /* MapViewController.swift in Sources */,
+				179CC130237C436700CA420A /* Storyboarded.swift in Sources */,
 				179CC110237B2B5300CA420A /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
