@@ -44,3 +44,5 @@ struct VehicleDetails: Codable {
 }
 
 typealias Vehicles = [Vehicle]
+
+

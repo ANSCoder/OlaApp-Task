@@ -14,7 +14,8 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
     
     private let disposeBag = DisposeBag()
     @IBOutlet weak var vehiclesCollectionView: UICollectionView!
-    public var vehiclesList = PublishSubject<Vehicles>()
+    var vehiclesList = PublishSubject<Vehicles>()
+    var groupList = PublishSubject<[String: Vehicles]>()
     let imageProvider = ImageProvider()
     
     //MARK: - Life Cycle
@@ -30,6 +31,10 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
         vehiclesCollectionView.register(nib,
                                         forCellWithReuseIdentifier: String(describing: VehicleCell.self))
         
+        vehiclesList.subscribe(onNext: {[weak self] array in
+           let groupValues =  array.grouping { $0.group }
+           self?.groupList.onNext(groupValues)
+        }).disposed(by: disposeBag)
         
         vehiclesList
             .bind(to: vehiclesCollectionView
@@ -67,5 +72,11 @@ extension VehiclesCollectionVC: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellHeight = collectionView.bounds.height - 1
         return CGSize(width: cellHeight, height: cellHeight)
+    }
+}
+
+extension Sequence {
+    func grouping<U: Hashable>(by key: (Iterator.Element) -> U) -> [U:[Iterator.Element]] {
+        return Dictionary.init(grouping: self, by: key)
     }
 }

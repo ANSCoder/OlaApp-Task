@@ -34,6 +34,8 @@
 		179CC12A237C387400CA420A /* VehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC128237C387400CA420A /* VehicleCell.swift */; };
 		179CC12D237C3E3A00CA420A /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC12C237C3E3A00CA420A /* ImageProvider.swift */; };
 		179CC130237C436700CA420A /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC12F237C436700CA420A /* Storyboarded.swift */; };
+		179CC132237C7B0E00CA420A /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC131237C7B0E00CA420A /* LocationModel.swift */; };
+		179CC134237C90C100CA420A /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC133237C90C100CA420A /* ImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		179CC128237C387400CA420A /* VehicleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleCell.swift; sourceTree = "<group>"; };
 		179CC12C237C3E3A00CA420A /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		179CC12F237C436700CA420A /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		179CC131237C7B0E00CA420A /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		179CC133237C90C100CA420A /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				179CC100237AF54600CA420A /* VehicleDetails.swift */,
+				179CC131237C7B0E00CA420A /* LocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				179CC11B237B315900CA420A /* ViewControllerExtension.swift */,
+				179CC133237C90C100CA420A /* ImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,7 +432,9 @@
 				179CC10A237AFC1100CA420A /* Endpoint.swift in Sources */,
 				179CC0C52379DA3D00CA420A /* SceneDelegate.swift in Sources */,
 				179CC106237AF85000CA420A /* VehicleDetailVC.swift in Sources */,
+				179CC132237C7B0E00CA420A /* LocationModel.swift in Sources */,
 				179CC12D237C3E3A00CA420A /* ImageProvider.swift in Sources */,
+				179CC134237C90C100CA420A /* ImageExtension.swift in Sources */,
 				179CC0FD2379E1EB00CA420A /* HomeViewController.swift in Sources */,
 				179CC12A237C387400CA420A /* VehicleCell.swift in Sources */,
 				179CC112237B2CF300CA420A /* DataDecoder.swift in Sources */,

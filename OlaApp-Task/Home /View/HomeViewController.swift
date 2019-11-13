@@ -52,6 +52,15 @@ class HomeViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .bind(to: vehiclesCollectionVC.vehiclesList)
             .disposed(by: disposeBag)
+        
+        homeViewModel
+            .vehicleList.bind {[weak self] values in
+                let new = values.map{ LocationModel(id: $0.id,
+                                                    carImageUrl: $0.carImageURL,
+                                                    coordinate: .init(latitude: $0.location.latitude,
+                                                                      longitude: $0.location.longitude))}
+                self?.mapViewController.locationList = new
+        }.disposed(by: disposeBag)
     }
     
 }
