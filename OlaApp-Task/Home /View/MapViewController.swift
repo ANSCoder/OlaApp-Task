@@ -14,6 +14,8 @@ import RxCocoa
 class MapViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var mapView: MKMapView!
+    var selectesIndex = PublishSubject<Int>()
+    private let disposeBag = DisposeBag()
     var locationList = [LocationModel](){
         didSet{
             addAnnotations()
@@ -26,20 +28,24 @@ class MapViewController: UIViewController, Storyboarded {
         
         mapView.delegate = self
         mapView.register(ArtworkView.self,
-                        forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
     func addAnnotations() {
-        DispatchQueue.main.async {
-            guard let location = self.locationList.first?.coordinate else { return }
-            let viewRegion = MKCoordinateRegion(center: location,
-                                                latitudinalMeters: 2000,
-                                                longitudinalMeters: 2000)
-            self.mapView.setRegion(viewRegion, animated: true)
-            self.mapView.addAnnotations(self.locationList)
-        }
+        selectesIndex
+            .subscribe(onNext: { index in
+                DispatchQueue.main.async {
+                    guard self.locationList.count != 0 else { return }
+                    let location = self.locationList[index].coordinate
+                    let viewRegion = MKCoordinateRegion(center: location,
+                                                        latitudinalMeters: 2000,
+                                                        longitudinalMeters: 2000)
+                    self.mapView.setRegion(viewRegion, animated: true)
+                    self.mapView.addAnnotations(self.locationList)
+                }
+            }).disposed(by: disposeBag)
     }
-
+    
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -53,29 +59,29 @@ extension MapViewController: MKMapViewDelegate {
 
 class ArtworkView: MKAnnotationView {
     
-  let imageProvider = ImageProvider()
+    let imageProvider = ImageProvider()
     
-  override var annotation: MKAnnotation? {
-    willSet {
-      guard let artwork = newValue as? LocationModel else {return}
-
-      if let imageName = artwork.carImageUrl {
-        guard let mediaUrl = NSURL(string: imageName) else {
-            image = nil
-            return
+    override var annotation: MKAnnotation? {
+        willSet {
+            guard let artwork = newValue as? LocationModel else {return}
+            
+            if let imageName = artwork.carImageUrl {
+                guard let mediaUrl = NSURL(string: imageName) else {
+                    image = nil
+                    return
+                }
+                let imageFile = self.imageProvider.cache.object(forKey: mediaUrl)
+                image = imageFile?.resizeImage(targetSize: CGSize(width: 50, height: 50))
+                if image == nil {
+                    self.imageProvider.loadImages(from :mediaUrl, completion: {[weak self] image  in
+                        self?.image = image.resizeImage(targetSize: CGSize(width: 50, height: 50))
+                    })
+                }
+            } else {
+                image = nil
+            }
         }
-        let imageFile = self.imageProvider.cache.object(forKey: mediaUrl)
-        image = imageFile?.resizeImage(targetSize: CGSize(width: 50, height: 50))
-        if image == nil {
-            self.imageProvider.loadImages(from :mediaUrl, completion: {[weak self] image  in
-                self?.image = image.resizeImage(targetSize: CGSize(width: 50, height: 50))
-            })
-        }
-      } else {
-        image = nil
-      }
     }
-  }
 }
 
 

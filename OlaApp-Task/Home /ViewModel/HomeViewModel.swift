@@ -17,6 +17,7 @@ struct HomeViewModel {
     let loading = PublishSubject<Bool>()
     let vehicleList = PublishSubject<Vehicles>()
     
+    
     //MARK: - Dependency Injection
     init(vehicleLoader: VehicleLoader = VehicleLoader()) {
         self.vehicleLoader = vehicleLoader

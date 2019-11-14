@@ -16,8 +16,10 @@ class HomeViewController: UIViewController {
     lazy var homeViewModel = HomeViewModel()
     let mapViewController = MapViewController.instantiate()
     let vehiclesCollectionVC = VehiclesCollectionVC.instantiate()
+    let detailViewController = VehicleDetailVC.instantiate()
     @IBOutlet weak var mapViewContainer: UIStackView!
     @IBOutlet weak var vehicalTypeContainer: UIStackView!
+    @IBOutlet weak var detailViewContainer: UIStackView!
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -34,9 +36,11 @@ class HomeViewController: UIViewController {
         homeViewModel.fetchVehicleList()
     }
     
+    //MARK:- View Setup
     func viewSetUp(){
         mapViewContainer.addArrangedSubview(mapViewController.view)
         vehicalTypeContainer.addArrangedSubview(vehiclesCollectionVC.view)
+        detailViewContainer.addArrangedSubview(detailViewController.view)
     }
     
     //MARK: - UI Binding
@@ -61,6 +65,23 @@ class HomeViewController: UIViewController {
                                                                       longitude: $0.location.longitude))}
                 self?.mapViewController.locationList = new
         }.disposed(by: disposeBag)
+        
+        collectionViewBinding()
+    }
+    
+    //MARK: - Collection View Binding
+    func collectionViewBinding(){
+        vehiclesCollectionVC
+        .selectedVehicle
+        .observeOn(MainScheduler.instance)
+        .bind(to: detailViewController.vehicleDetails)
+        .disposed(by: disposeBag)
+        
+        vehiclesCollectionVC
+        .selectesIndex
+        .observeOn(MainScheduler.instance)
+        .bind(to: mapViewController.selectesIndex)
+        .disposed(by: disposeBag)
     }
     
 }

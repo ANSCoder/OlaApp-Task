@@ -15,7 +15,8 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
     private let disposeBag = DisposeBag()
     @IBOutlet weak var vehiclesCollectionView: UICollectionView!
     var vehiclesList = PublishSubject<Vehicles>()
-    var groupList = PublishSubject<[String: Vehicles]>()
+    var selectedVehicle = PublishSubject<Vehicle>()
+    var selectesIndex = PublishSubject<Int>()
     let imageProvider = ImageProvider()
     
     //MARK: - Life Cycle
@@ -23,6 +24,8 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         bindUI()
+        makeDefaultSelection()
+        bindSelectionAndDeselection()
     }
     
     //MARK:- UI setup & Binding
@@ -30,11 +33,6 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
         let nib = UINib(nibName: "VehicleCell", bundle: nil)
         vehiclesCollectionView.register(nib,
                                         forCellWithReuseIdentifier: String(describing: VehicleCell.self))
-        
-        vehiclesList.subscribe(onNext: {[weak self] array in
-           let groupValues =  array.grouping { $0.group }
-           self?.groupList.onNext(groupValues)
-        }).disposed(by: disposeBag)
         
         vehiclesList
             .bind(to: vehiclesCollectionView
@@ -46,12 +44,12 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
                             return
                         }
                         let image = self.imageProvider.cache.object(forKey: mediaUrl)
-                        cell.vehicleImage.image = image
+                        cell.vehicleImage.image = image?.resizeImage(targetSize: CGSize(width: 50, height: 50))
                         if image == nil {
                             self.imageProvider.loadImages(from :mediaUrl, completion: {[weak self] image  in
                                 let indexPath = self?.vehiclesCollectionView.indexPath(for: cell)
                                 if index == indexPath?.row {
-                                    cell.vehicleImage.image = image
+                                    cell.vehicleImage.image = image.resizeImage(targetSize: CGSize(width: 50, height: 50))
                                 }
                             })
                         }
@@ -61,6 +59,36 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
             .rx
             .setDelegate(self)
             .disposed(by: disposeBag)
+    
+    }
+    
+    //MARK: - Pre selected cell
+    func makeDefaultSelection(){
+        vehiclesList.subscribe(onNext: {[weak self] models in
+            if models.count != 0{
+                let selectedIndexPath = IndexPath(item: 0, section: 0)
+                self?.selectedVehicle.onNext(models[selectedIndexPath.row])
+                self?.selectedCell(at: selectedIndexPath)
+            }
+        }).disposed(by: disposeBag)
+    }
+    
+    func selectedCell(at index: IndexPath){
+        DispatchQueue.main.async {[weak self] in
+            self?.selectesIndex.onNext(index.row)
+            self?.vehiclesCollectionView.selectItem(at: index,
+                                                    animated: true,
+                                                    scrollPosition: .bottom)
+        }
+    }
+    
+    func bindSelectionAndDeselection(){
+        Observable.zip(vehiclesCollectionView.rx.itemSelected,
+                       vehiclesCollectionView.rx.modelSelected(Vehicle.self))
+            .bind{ [weak self] indexPath, model in
+                self?.selectedVehicle.onNext(model)
+             self?.selectedCell(at: indexPath)
+        }.disposed(by: disposeBag)
     }
     
 }
@@ -75,8 +103,3 @@ extension VehiclesCollectionVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension Sequence {
-    func grouping<U: Hashable>(by key: (Iterator.Element) -> U) -> [U:[Iterator.Element]] {
-        return Dictionary.init(grouping: self, by: key)
-    }
-}

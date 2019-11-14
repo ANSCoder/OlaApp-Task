@@ -18,7 +18,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0o-fh-fUu">
                         <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="99" id="99c-Gr-ZdN"/>
                             <constraint firstAttribute="width" constant="99" id="pKd-b6-byP"/>

@@ -36,6 +36,7 @@
 		179CC130237C436700CA420A /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC12F237C436700CA420A /* Storyboarded.swift */; };
 		179CC132237C7B0E00CA420A /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC131237C7B0E00CA420A /* LocationModel.swift */; };
 		179CC134237C90C100CA420A /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC133237C90C100CA420A /* ImageExtension.swift */; };
+		179CC136237D899800CA420A /* Custom View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC135237D899800CA420A /* Custom View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		179CC12F237C436700CA420A /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		179CC131237C7B0E00CA420A /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		179CC133237C90C100CA420A /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		179CC135237D899800CA420A /* Custom View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				179CC12B237C3E2D00CA420A /* Image Provider */,
 				179CC11A237B314400CA420A /* Extensions */,
 				179CC117237B30CE00CA420A /* Loading View */,
+				179CC135237D899800CA420A /* Custom View.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				179CC126237C386800CA420A /* VehiclesCollectionVC.swift in Sources */,
 				179CC108237AF87000CA420A /* MapViewController.swift in Sources */,
 				179CC130237C436700CA420A /* Storyboarded.swift in Sources */,
+				179CC136237D899800CA420A /* Custom View.swift in Sources */,
 				179CC110237B2B5300CA420A /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
