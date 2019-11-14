@@ -18,6 +18,8 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
     var selectedVehicle = PublishSubject<Vehicle>()
     var selectesIndex = PublishSubject<Int>()
     let imageProvider = ImageProvider()
+    @IBOutlet weak var bookCarButton: UIButton!
+    
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -68,17 +70,23 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
             if models.count != 0{
                 let selectedIndexPath = IndexPath(item: 0, section: 0)
                 self?.selectedVehicle.onNext(models[selectedIndexPath.row])
-                self?.selectedCell(at: selectedIndexPath)
+                self?.selectedCell(at: selectedIndexPath, for: models[selectedIndexPath.row])
             }
         }).disposed(by: disposeBag)
     }
     
-    func selectedCell(at index: IndexPath){
+    func selectedCell(at index: IndexPath, for model: Vehicle){
         DispatchQueue.main.async {[weak self] in
             self?.selectesIndex.onNext(index.row)
             self?.vehiclesCollectionView.selectItem(at: index,
                                                     animated: true,
                                                     scrollPosition: .centeredHorizontally)
+            self?.bookCarButton
+                .rx
+                .tap.bind {
+                self?.showAlertWithMessage("Booking Alert!",
+                                          message: "Booking successfully done for \(model.vehicleDetails.name) - \(model.vehicleDetails.make), Number - \(model.licensePlate).")
+            }.disposed(by: self!.disposeBag)
         }
     }
     
@@ -88,7 +96,7 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
                        vehiclesCollectionView.rx.modelSelected(Vehicle.self))
             .bind{ [weak self] indexPath, model in
                 self?.selectedVehicle.onNext(model)
-                self?.selectedCell(at: indexPath)
+                self?.selectedCell(at: indexPath, for: model)
         }.disposed(by: disposeBag)
     }
     

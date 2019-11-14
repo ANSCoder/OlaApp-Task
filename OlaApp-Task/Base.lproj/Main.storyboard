@@ -278,6 +278,7 @@
                         <viewLayoutGuide key="safeArea" id="l2S-co-xqm"/>
                     </view>
                     <connections>
+                        <outlet property="bookCarButton" destination="DCw-j6-ZPU" id="Ar3-FS-JlN"/>
                         <outlet property="vehiclesCollectionView" destination="A8C-fo-qmU" id="Q07-NE-S28"/>
                     </connections>
                 </viewController>

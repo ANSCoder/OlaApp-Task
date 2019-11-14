@@ -51,7 +51,7 @@ extension UIViewController{
         let alertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: .alert)
-        present(alertController, animated: true, completion: nil)
+        view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
         let delay = 3.0 * Double(NSEC_PER_SEC)
         let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: time, execute: {
