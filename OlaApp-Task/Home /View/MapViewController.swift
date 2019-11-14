@@ -26,11 +26,13 @@ class MapViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Map view Setup 
         mapView.delegate = self
         mapView.register(VehicleAnnotationView.self,
                          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
+    //MARK: - Adding Annotation
     func addAnnotations() {
         selectesIndex
             .subscribe(onNext: { index in
@@ -48,7 +50,9 @@ class MapViewController: UIViewController, Storyboarded {
     
 }
 
+//MARK: - Map View Delegate
 extension MapViewController: MKMapViewDelegate {
+    //Custom Annotation view Setup here
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "VehicleAnnotationView") as? VehicleAnnotationView
         return annotationView

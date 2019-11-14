@@ -67,6 +67,30 @@ class HomeViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         collectionViewBinding()
+        
+        alertViewBinding()
+    }
+    
+    //MARK: - Alert View Setup
+    func alertViewBinding(){
+        homeViewModel
+            .displayError
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {[weak self] errorMessage in
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                    self?.showAlertWithMessage(message: errorMessage)
+                }
+            }).disposed(by: disposeBag)
+        
+        homeViewModel
+            .loading
+            .subscribe(onNext: {[weak self] status in
+                guard status == false else{ return }
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+                    self?.showAlertWithMessage("Welcome to Rental car",
+                                               message: "Find rental car near by you. Select your car based on location.")
+                }
+            }).disposed(by: disposeBag)
     }
     
     //MARK: - Collection View Binding

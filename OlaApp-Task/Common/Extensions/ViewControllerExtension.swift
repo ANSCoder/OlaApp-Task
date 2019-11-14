@@ -40,3 +40,23 @@ extension UIViewController{
         })
     }
 }
+
+
+extension UIViewController{
+    
+    //MARK: - Alert View with auto dismiss
+    func showAlertWithMessage(_ title: String = "Message",
+                              message: String,
+                              completion: (() -> Void)? = nil){
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        present(alertController, animated: true, completion: nil)
+        let delay = 3.0 * Double(NSEC_PER_SEC)
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
+            alertController.dismiss(animated: true, completion: nil)
+            completion?()
+        })
+    }
+}

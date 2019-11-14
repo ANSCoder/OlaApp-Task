@@ -44,12 +44,12 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
                             return
                         }
                         let image = self.imageProvider.cache.object(forKey: mediaUrl)
-                        cell.vehicleImage.image = image?.resizeImage(targetSize: CGSize(width: 50, height: 50))
+                        cell.vehicleImage.image = image?.resizeImage()
                         if image == nil {
                             self.imageProvider.loadImages(from :mediaUrl, completion: {[weak self] image  in
                                 let indexPath = self?.vehiclesCollectionView.indexPath(for: cell)
                                 if index == indexPath?.row {
-                                    cell.vehicleImage.image = image.resizeImage(targetSize: CGSize(width: 50, height: 50))
+                                    cell.vehicleImage.image = image.resizeImage()
                                 }
                             })
                         }
@@ -78,7 +78,7 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
             self?.selectesIndex.onNext(index.row)
             self?.vehiclesCollectionView.selectItem(at: index,
                                                     animated: true,
-                                                    scrollPosition: .bottom)
+                                                    scrollPosition: .centeredHorizontally)
         }
     }
     

@@ -22,10 +22,10 @@ class VehicleAnnotationView: MKAnnotationView {
                     return
                 }
                 let imageFile = self.imageProvider.cache.object(forKey: mediaUrl)
-                image = imageFile?.resizeImage(targetSize: CGSize(width: 50, height: 50))
+                image = imageFile?.resizeImage()
                 if image == nil {
                     self.imageProvider.loadImages(from :mediaUrl, completion: {[weak self] image  in
-                        self?.image = image.resizeImage(targetSize: CGSize(width: 50, height: 50))
+                        self?.image = image.resizeImage()
                     })
                 }
             } else {

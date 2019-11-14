@@ -15,6 +15,7 @@ struct HomeViewModel {
     
     let vehicleLoader: VehicleLoader
     let loading = PublishSubject<Bool>()
+    let displayError = PublishSubject<String>()
     let vehicleList = PublishSubject<Vehicles>()
     
     
@@ -34,6 +35,7 @@ struct HomeViewModel {
                     self.loading.onNext(false)
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
+                    self.displayError.onNext(error.localizedDescription)
                 }
             }
         }
