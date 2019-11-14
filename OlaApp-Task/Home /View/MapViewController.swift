@@ -27,7 +27,7 @@ class MapViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         mapView.delegate = self
-        mapView.register(ArtworkView.self,
+        mapView.register(VehicleAnnotationView.self,
                          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
@@ -49,40 +49,9 @@ class MapViewController: UIViewController, Storyboarded {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "ArtworkView") as? ArtworkView
-        
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "VehicleAnnotationView") as? VehicleAnnotationView
         return annotationView
     }
 }
-
-class ArtworkView: MKAnnotationView {
-    
-    let imageProvider = ImageProvider()
-    
-    override var annotation: MKAnnotation? {
-        willSet {
-            guard let artwork = newValue as? LocationModel else {return}
-            
-            if let imageName = artwork.carImageUrl {
-                guard let mediaUrl = NSURL(string: imageName) else {
-                    image = nil
-                    return
-                }
-                let imageFile = self.imageProvider.cache.object(forKey: mediaUrl)
-                image = imageFile?.resizeImage(targetSize: CGSize(width: 50, height: 50))
-                if image == nil {
-                    self.imageProvider.loadImages(from :mediaUrl, completion: {[weak self] image  in
-                        self?.image = image.resizeImage(targetSize: CGSize(width: 50, height: 50))
-                    })
-                }
-            } else {
-                image = nil
-            }
-        }
-    }
-}
-
-
 

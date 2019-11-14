@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class VehicleDetailVC: UIViewController, Storyboarded {
-
+    
     var vehicleDetails = PublishSubject<Vehicle>()
     private let disposeBag = DisposeBag()
     @IBOutlet weak var labelName: UILabel!
@@ -24,7 +24,7 @@ class VehicleDetailVC: UIViewController, Storyboarded {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         vehicleDetails
             .subscribe(onNext: {[weak self] details in
                 self?.labelName.text = details.vehicleDetails.name

@@ -72,16 +72,16 @@ class HomeViewController: UIViewController {
     //MARK: - Collection View Binding
     func collectionViewBinding(){
         vehiclesCollectionVC
-        .selectedVehicle
-        .observeOn(MainScheduler.instance)
-        .bind(to: detailViewController.vehicleDetails)
-        .disposed(by: disposeBag)
+            .selectedVehicle
+            .observeOn(MainScheduler.instance)
+            .bind(to: detailViewController.vehicleDetails)
+            .disposed(by: disposeBag)
         
         vehiclesCollectionVC
-        .selectesIndex
-        .observeOn(MainScheduler.instance)
-        .bind(to: mapViewController.selectesIndex)
-        .disposed(by: disposeBag)
+            .selectesIndex
+            .observeOn(MainScheduler.instance)
+            .bind(to: mapViewController.selectesIndex)
+            .disposed(by: disposeBag)
     }
     
 }

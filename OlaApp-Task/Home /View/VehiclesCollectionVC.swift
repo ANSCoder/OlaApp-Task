@@ -59,7 +59,7 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
             .rx
             .setDelegate(self)
             .disposed(by: disposeBag)
-    
+        
     }
     
     //MARK: - Pre selected cell
@@ -82,17 +82,19 @@ class VehiclesCollectionVC: UIViewController, Storyboarded {
         }
     }
     
+    //MARK: - Binding Collection View Selection
     func bindSelectionAndDeselection(){
         Observable.zip(vehiclesCollectionView.rx.itemSelected,
                        vehiclesCollectionView.rx.modelSelected(Vehicle.self))
             .bind{ [weak self] indexPath, model in
                 self?.selectedVehicle.onNext(model)
-             self?.selectedCell(at: indexPath)
+                self?.selectedCell(at: indexPath)
         }.disposed(by: disposeBag)
     }
     
 }
 
+//MARK: - Collection View Delegate FlowLayout
 extension VehiclesCollectionVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,

@@ -37,6 +37,7 @@
 		179CC132237C7B0E00CA420A /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC131237C7B0E00CA420A /* LocationModel.swift */; };
 		179CC134237C90C100CA420A /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC133237C90C100CA420A /* ImageExtension.swift */; };
 		179CC136237D899800CA420A /* ANCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC135237D899800CA420A /* ANCustomView.swift */; };
+		179CC139237DAE4E00CA420A /* VehicleAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179CC138237DAE4E00CA420A /* VehicleAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		179CC131237C7B0E00CA420A /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		179CC133237C90C100CA420A /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		179CC135237D899800CA420A /* ANCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANCustomView.swift; sourceTree = "<group>"; };
+		179CC138237DAE4E00CA420A /* VehicleAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		179CC0F42379DD4500CA420A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				179CC137237DAE3700CA420A /* AnnotationView */,
 				179CC11F237C2DB700CA420A /* Cells */,
 				179CC0FC2379E1EB00CA420A /* HomeViewController.swift */,
 				179CC125237C386800CA420A /* VehiclesCollectionVC.swift */,
@@ -286,6 +289,14 @@
 				179CC12F237C436700CA420A /* Storyboarded.swift */,
 			);
 			path = Storyboarded;
+			sourceTree = "<group>";
+		};
+		179CC137237DAE3700CA420A /* AnnotationView */ = {
+			isa = PBXGroup;
+			children = (
+				179CC138237DAE4E00CA420A /* VehicleAnnotationView.swift */,
+			);
+			path = AnnotationView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +454,7 @@
 				179CC112237B2CF300CA420A /* DataDecoder.swift in Sources */,
 				179CC0FF2379E2C700CA420A /* HomeViewModel.swift in Sources */,
 				179CC10E237B228700CA420A /* Future.swift in Sources */,
+				179CC139237DAE4E00CA420A /* VehicleAnnotationView.swift in Sources */,
 				179CC101237AF54600CA420A /* VehicleDetails.swift in Sources */,
 				179CC126237C386800CA420A /* VehiclesCollectionVC.swift in Sources */,
 				179CC108237AF87000CA420A /* MapViewController.swift in Sources */,
