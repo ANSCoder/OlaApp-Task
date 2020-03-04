@@ -22,6 +22,7 @@ Based on selection use can view the cars details and able to do booking.
   <img src="https://user-images.githubusercontent.com/19596311/68887351-d9b36180-073e-11ea-8c46-a0210f15190e.png" width="250">
   <img src="https://user-images.githubusercontent.com/19596311/68887352-da4bf800-073e-11ea-870e-458764e52eb0.png" width="250">
   <img src="https://user-images.githubusercontent.com/19596311/68887354-da4bf800-073e-11ea-9eb9-a159078ce705.png" width="250">
+  <img src="https://user-images.githubusercontent.com/19596311/75880290-ff29bf80-5e42-11ea-9018-6c2e15ed54bf.gif" width="250">
 </p>
 <br>
 <br>
